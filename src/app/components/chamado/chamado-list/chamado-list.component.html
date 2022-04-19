@@ -9,9 +9,9 @@
   </mat-form-field>
 
   <mat-radio-group color="primary"> 
-    <mat-radio-button value="ABERTO">ABERTO</mat-radio-button>
-    <mat-radio-button value="ANDAMENTO">ANDAMENTO</mat-radio-button>
-    <mat-radio-button value="ENCERRADO">ENCERRADO</mat-radio-button>
+    <mat-radio-button (click)="orderByStatus(0)" value="0">ABERTO</mat-radio-button>
+    <mat-radio-button (click)="orderByStatus(1)" value="1">ANDAMENTO</mat-radio-button>
+    <mat-radio-button (click)="orderByStatus(2)" value="2">ENCERRADO</mat-radio-button>
   </mat-radio-group>
 
   <div class="mat-elevation-z8">
@@ -42,14 +42,14 @@
         <td mat-cell *matCellDef="let element"> {{element.dataAbertura}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="prioridade">
+      <ng-container matColumnDef="idPrioridade">
         <th mat-header-cell *matHeaderCellDef> Prioridade </th>
-        <td mat-cell *matCellDef="let element"> {{element.prioridade}} </td>
+        <td mat-cell *matCellDef="let element"> {{retornaPrioridade(element.idPrioridade)}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="status">
+      <ng-container matColumnDef="idStatus">
         <th mat-header-cell *matHeaderCellDef> Status </th>
-        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        <td mat-cell *matCellDef="let element"> {{retornaStatus(element.idStatus)}} </td>
       </ng-container>
 
       <ng-container matColumnDef="acoes">
